@@ -13,22 +13,26 @@ conversion_type = st.sidebar.radio("Choose conversion:", ("Celsius to Fahrenheit
 # Function to determine color and background based on temperature
 def get_temperature_data(temp_celsius):
     if temp_celsius <= 0:
-        return 'blue', "url('https://example.com/snowy.jpg')"  # Replace with actual snowy image URL
+        return 'blue', "https://www.publicdomainpictures.net/pictures/320000/velka/winter-snow-background.jpg"  # Example snowy image
     elif 0 < temp_celsius <= 25:
-        return 'green', "url('https://example.com/pleasant.jpg')"  # Replace with actual pleasant image URL
+        return 'green', "https://www.publicdomainpictures.net/pictures/300000/velka/pleasant-meadow.jpg"  # Example pleasant image
     else:
-        return 'red', "url('https://example.com/hot.jpg')"  # Replace with actual hot image URL
+        return 'red', "https://www.publicdomainpictures.net/pictures/300000/velka/sunny-desert.jpg"  # Example hot image
 
-# Apply custom CSS for background based on temperature
+# Apply custom CSS for background and progress bar color
 def set_background(image_url):
     st.markdown(
         f"""
         <style>
         .stApp {{
-            background-image: {image_url};
+            background-image: url('{image_url}');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
+        }}
+        /* Set the color of the progress bar */
+        .stProgress > div {{
+            background-color: black; /* Change progress bar color to black */
         }}
         </style>
         """, unsafe_allow_html=True
