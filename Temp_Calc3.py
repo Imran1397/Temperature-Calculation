@@ -30,10 +30,6 @@ def set_background(image_url):
             background-repeat: no-repeat;
             background-attachment: fixed;
         }}
-        /* Set the color of the progress bar */
-        .stProgress > div {{
-            background-color: black; /* Change progress bar color to black */
-        }}
         </style>
         """, unsafe_allow_html=True
     )
@@ -59,7 +55,7 @@ fig = go.Figure(go.Indicator(
     value=celsius,
     gauge={
         'axis': {'range': [-30, 50]},
-        'bar': {'color': color},
+        'bar': {'color': 'black'},  # Set gauge line color to black
         'steps': [
             {'range': [-30, 0], 'color': "lightblue"},
             {'range': [0, 25], 'color': "lightgreen"},
